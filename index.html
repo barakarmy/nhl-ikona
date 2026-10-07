@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NHL stats</title>
+  <meta name="theme-color" content="#0b1220">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="NHL stats">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0b1220;
+           color: #e6ebf2; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; }
+    .k { max-width: 360px; padding: 24px; }
+    img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    h1 { font-size: 1.5rem; margin: 18px 0 8px; }
+    p { opacity: .75; line-height: 1.5; font-size: .95rem; }
+    a.poga { display: inline-block; margin-top: 14px; padding: 12px 22px; border-radius: 999px; background: #1e3a8a; color: #fff;
+             text-decoration: none; font-weight: 700; }
+    .maza { font-size: .8rem; opacity: .55; margin-top: 22px; }
+  </style>
+</head>
+<body>
+  <div class="k">
+    <img src="icon-192.png" alt="NHL stats">
+    <h1>NHL stats</h1>
+    <p id="teksts">Lai lietotne būtu sākuma ekrānā ar šo ikonu: Chrome izvēlnē ⋮ izvēlies <b>“Instalēt lietotni”</b> vai <b>“Pievienot sākuma ekrānam”</b>
+       (iPhone Safari: Kopīgot → “Pievienot sākuma ekrānam”).</p>
+    <a class="poga" href="https://nhl-stats-lv.streamlit.app/">Atvērt NHL stats</a>
+    <p class="maza">Šī lapa tikai atver lietotni nhl-stats-lv.streamlit.app.</p>
+  </div>
+  <script>
+    // Atverot no sākuma ekrāna ikonas (start_url ar ?no=ikona vai instalētā lietotne), uzreiz pāriet uz lietotni.
+    var noIkonas = location.search.indexOf("no=ikona") >= 0 || window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+    if (noIkonas) {
+      document.getElementById("teksts").textContent = "Atver NHL stats…";
+      location.replace("https://nhl-stats-lv.streamlit.app/");
+    }
+  </script>
+</body>
+</html>
